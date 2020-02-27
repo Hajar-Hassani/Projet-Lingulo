@@ -1,0 +1,159 @@
+// ./scss/framework/modules/_slider.scss
+// MODULE DES SLIDERS
+
+  @media screen and (min-width: 768px) {
+    .slider {
+      display: block;
+      position: relative;
+      width: auto;
+      margin: 0 auto;
+      height: 194px;
+
+      @media screen and (min-width: 992px) {
+        height: 248px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        height: 320px;
+      }
+    }
+
+    //--------SLIDER DES ARTICLES--------
+      .slider_article {
+        position: absolute;
+        width: auto;
+        margin-right: 50px;
+        margin-left: -5px;
+        font-family: $texteFont1;
+        left: 15%;
+        line-height: 25px;
+        z-index: 11;
+        opacity: 0;
+        animation: slider-animation;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+
+        @media screen and (min-width: 1200px) {
+          width: 350px;
+          .button {
+            color: $couleur1C;
+            text-decoration: none;
+            background: #eb653c;
+            padding: 7px 14px;
+            border: 1px solid #c3532e;
+            border-radius: 5px;
+            box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+            font-size: 17px;
+            &:hover {
+              background: $couleur1C;
+              border-color: $couleur1C;
+              color: $couleur3F;
+            }
+          }
+        }
+
+        .link {
+          text-decoration: none;
+          color: $couleurN2;
+        }
+
+        h1 {
+          font-size: 18px;
+          font-weight: bold;
+          color: $couleur1C;
+          background-color: $couleurN3;
+          margin-bottom: 10px;
+          padding: 10px 15px;
+          border-radius: 15px 0 15px 0;
+          display: inline-block;
+
+          @media screen and (min-width: 1200px) {
+            font-size: 25px;
+          }
+        }
+        p {
+          font-size: 14px;
+          color: $couleur3F;
+          background-color: $couleur1C;
+          border-radius: 5px;
+          margin: 0 0 30px 0;
+          padding: 10px 15px;
+          @media screen and (min-width: 1200px) {
+            font-size: 17px;
+          }
+        }
+      }
+
+      #article1 {
+        animation-delay: 0.5s;
+      }
+
+      #article2 {
+        animation-delay: 5.5s;
+      }
+
+      #article3 {
+        animation-delay: 10.5s;
+      }
+
+      //--------SLIDER DES IMAGES--------
+        .slides_background {
+          position: relative;
+          border-top: 1px #d6d0c1 solid;
+        }
+
+        .single_slide {
+          position: absolute;
+          width: 100%;
+          opacity: 0;
+          animation: slider-animation;
+          animation-duration: 15s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-in-out;
+          overflow: hidden;
+        }
+
+        #slide1 {
+          animation-delay: 0s;
+        }
+
+        #slide2 {
+          animation-delay: 5s;
+        }
+
+        #slide3 {
+          animation-delay: 10s;
+        }
+
+        .slider_image{
+          width: 100%;
+          height: 194px;
+
+          @media screen and (min-width: 992px) {
+            height: 248px;
+          }
+
+          @media screen and (min-width: 1200px) {
+            height: 320px;
+          }
+        }
+      }
+
+    @keyframes slider-animation {
+      0% {
+          opacity: 0;
+      }
+      6% {
+          opacity: 1;
+      }
+      24% {
+          opacity: 1;
+      }
+      30% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 0;
+      }
+    }

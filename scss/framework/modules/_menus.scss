@@ -1,0 +1,138 @@
+// ./scss/framework/modules/_menus.scss
+// MODULE DES MENUS
+
+  .menu_type__horizontal {
+    display: flex;
+    justify-content: $menuJustifyContent;
+    list-style: none;
+    padding-left: 0;
+    @media (min-width: 768px) {
+      display: flex;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .menu_type__horizontal > li {
+    padding:2px 15px;
+  }
+
+  .menu_type__horizontal > li > a  {
+    color: $menuCouleurTexteNormal;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .menu_type__horizontal > li.actif > a,
+  .menu_type__horizontal > li > a:hover,
+  .menu_type__horizontal > li > a:active {
+    color: $menuCouleurTexteActif;
+  }
+
+//--------MENU MOBILE--------
+  .menuToggle {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    input {
+      display: flex;
+      width: 40px;
+      height: 36px;
+      position: fixed;
+      cursor: pointer;
+      opacity: 0;
+      z-index: 2;
+      -webkit-touch-callout: none;
+    }
+
+  //--------L'HAMBURGER--------
+    span {
+      position: relative;
+      display: block;
+      width: 40px;
+      height: 8px;
+      left: 0;
+      margin-bottom: -8px;
+      background: $couleur5C;
+      z-index: 1;
+      transform-origin: 4px 0px;
+      transition: transform 0.5s cubic-bezier(.75,.25,.1,.95),
+                  background 0.5s cubic-bezier(.75,.25,.1,.95),
+                  opacity 0.55s ease;
+    }
+
+    .menu1{
+      top: 0;
+    }
+    .menu2{
+      top: 14px;
+    }
+    .menu3 {
+      top: 28px;
+    }
+
+    span:first-child {
+      transform-origin: -3px;
+    }
+    span:nth-last-child(2) {
+      transform-origin: -7px;
+    }
+
+    //Transformer l'hamburger en croix
+    input:checked ~ span {
+      opacity: 1;
+      transform: rotate(45deg) translate(-2px, -1px);
+      background: $couleur5C;
+    }
+
+    // Cacher la barre de l'hamburger du milieu.
+    input:checked ~ span:nth-last-child(3) {
+      opacity: 0;
+    }
+
+    // le dernier doit aller dans l'autre sens
+    input:checked ~ span:nth-last-child(2){
+      opacity: 1;
+      transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    input:checked ~ ul {
+      transform: none;
+    }
+    
+    //--------MENU DE NAVIGATION MOBILE--------
+      .mobileMenu {
+        position: fixed;
+        display: block;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100px;
+        top: 0;
+        left: 0;
+        -webkit-font-smoothing: antialiased;
+
+        // faire disparaitre le menu
+        transform-origin: 0% 0%;
+        transform: translate(0, -125%);
+        transition: transform 0.5s cubic-bezier(.75,.25,.1,.95);
+        li {
+          background-color: $couleur1F;
+          padding: 12px 0;
+          text-align: center;
+          border-bottom: 1px solid $couleur6C;
+          transition: color 0.3s ease;
+          a {
+            font-family: $texteFont1;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $couleurN1;
+          }
+        }
+      }
+  }
